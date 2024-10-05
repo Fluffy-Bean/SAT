@@ -11,4 +11,8 @@ add_executable(
         SAT
         src/main.c
         src/main.h
+        src/sat.c
+        src/sat.h
+        src/object.c
+        src/object.h
 )

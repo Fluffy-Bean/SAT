@@ -55,3 +55,6 @@ dkms.conf
 # Editor files
 .idea
 .vscode
+
+# CMake
+cmake-*
