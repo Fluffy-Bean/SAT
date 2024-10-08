@@ -3,7 +3,7 @@
 
 #include <raylib.h>
 #include <stdbool.h>
-#include "object.h"
+#include "shape.h"
 
 typedef struct Collision Collision;
 struct Collision {
@@ -18,8 +18,14 @@ struct Projection {
     float max;
 };
 
-Collision  CheckCollision(Object *obj1, Object *obj2);
-Vector2    FindArithmetic(Object *obj);
-Projection ProjectToPlane(Vector2 axis, Object *obj);
+Collision CheckCollision(Shape *shape1, Shape *shape2);
+Collision CheckCollisionCircleCircle(ShapeCircle *shape1, ShapeCircle *shape2);
+Collision CheckCollisionPolyPoly(ShapePolygon *shape1, ShapePolygon *shape2);
+Collision CheckCollisionPolyCircle(ShapePolygon *shape1, ShapeCircle *shape2);
+Collision CheckCollisionCirclePoly(ShapeCircle *shape1, ShapePolygon *shape2);
+
+Vector2    FindArithmetic(ShapePolygon *shape);
+Projection ProjectPolygon(Vector2 axis, ShapePolygon *shape);
+Projection ProjectCircle(Vector2 axis, ShapeCircle *shape);
 
 #endif // SAT_H
